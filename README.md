@@ -6,7 +6,7 @@ An interactive browser-based educational game for learning the IBM ESA/390 instr
 
 **[Try it online](https://sw-comp-history.github.io/ibm-390-rs/)**
 
-![IBM ESA/390 Emulator Screenshot](images/ibm-390-interface.png)
+![IBM ESA/390 Emulator Screenshot](images/ibm-390-interface.png?ts=1772048087000)
 
 ## Features
 
