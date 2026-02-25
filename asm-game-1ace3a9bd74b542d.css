@@ -1,0 +1,651 @@
+/* Shared Assembly Game Component Styles */
+/* This file should be included by all assembly games for consistency */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Monaco', 'Courier New', monospace;
+    background: #1a1a2e;
+    color: #eee;
+    padding: 5px;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Header Component */
+header {
+    background: #16213e;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    flex-shrink: 0;
+}
+
+h1 {
+    color: #00d9ff;
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.subtitle {
+    display: none;
+}
+
+/* Sidebar Component */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: fixed;
+    left: 5px;
+    top: 50px;
+    width: 150px;
+    z-index: 10;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    background: #00d9ff;
+    color: #1a1a2e;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.75em;
+    transition: background 0.2s;
+}
+
+.sidebar button:hover {
+    background: #00b8d4;
+}
+
+/* Generic Panel Styling */
+.panel {
+    background: #16213e;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.panel-title {
+    color: #00d9ff;
+    font-size: 0.75em;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #00d9ff;
+    padding-bottom: 2px;
+    flex-shrink: 0;
+}
+
+/* Button Styles */
+button {
+    background: #00d9ff;
+    color: #1a1a2e;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.75em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #00b8d9;
+}
+
+button:disabled {
+    background: #555;
+    cursor: not-allowed;
+}
+
+/* ProgramArea Component */
+.program-area {
+    background: #16213e;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    padding: 8px;
+    background: #0f3460;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+#programEditor {
+    width: 100%;
+    background: #0f3460;
+    color: #0f0;
+    border: 1px solid #00d9ff;
+    border-radius: 3px;
+    padding: 8px;
+    font-family: 'Monaco', monospace;
+    font-size: 0.75em;
+    resize: none;
+    flex: 1.2;
+    min-height: 150px;
+}
+
+#assemblyOutput {
+    background: #0f3460;
+    padding: 8px;
+    border-radius: 3px;
+    font-family: 'Monaco', monospace;
+    font-size: 0.75em;
+    flex: 1;
+    overflow-y: auto;
+    display: none;
+    min-height: 100px;
+}
+
+#assemblyOutput.visible {
+    display: block;
+}
+
+.assembly-line {
+    margin-bottom: 3px;
+    display: flex;
+    gap: 15px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.assembly-line.current {
+    background: #1a5f5f;
+    border-left: 3px solid #00d9ff;
+    padding-left: 8px;
+}
+
+/* RegisterPanel Component */
+.registers-panel {
+    flex: 0.6;
+    overflow: hidden;
+    background: #16213e;
+    border-radius: 5px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.registers-container {
+    display: flex;
+    gap: 4px;
+    flex: 1;
+    overflow: hidden;
+    min-height: 0;
+}
+
+.register-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    flex: 1;
+    overflow-y: auto;
+    align-content: start;
+    min-height: 0;
+}
+
+.register {
+    background: #0f3460;
+    padding: 2px 4px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7em;
+    transition: background-color 0.3s ease;
+}
+
+.register.changed {
+    background: #1a5f1a;
+    border: 1px solid #0f0;
+}
+
+.register-label {
+    color: #00d9ff;
+    font-weight: bold;
+}
+
+.register-value {
+    color: #0f0;
+    font-family: 'Monaco', monospace;
+}
+
+.register-value.changed {
+    background: #1a5f1a;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.register-legend {
+    background: #0a2540;
+    padding: 3px 4px;
+    border-radius: 2px;
+    font-size: 0.6em;
+    color: #aaa;
+    border-left: 2px solid #00d9ff;
+    width: 130px;
+    flex-shrink: 0;
+}
+
+.legend-title {
+    color: #00d9ff;
+    font-weight: bold;
+    margin-bottom: 1px;
+}
+
+.legend-item {
+    margin-bottom: 1px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.legend-label {
+    color: #00d9ff;
+}
+
+.legend-value {
+    color: #0f0;
+    font-weight: bold;
+}
+
+.legend-value.changed {
+    background: #1a5f1a;
+    padding: 1px 3px;
+    border-radius: 2px;
+}
+
+/* MemoryViewer Component */
+.memory-panel {
+    flex: 2;
+    overflow: hidden;
+    background: #16213e;
+    border-radius: 5px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.memory-viewer {
+    background: #0f3460;
+    padding: 4px;
+    border-radius: 3px;
+    overflow-y: auto;
+    flex: 1;
+    font-family: 'Monaco', monospace;
+    font-size: 0.75em;
+    min-height: 0;
+}
+
+.memory-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 2px;
+}
+
+.memory-address {
+    color: #888;
+    min-width: 50px;
+}
+
+.memory-byte {
+    display: inline-block;
+    margin-right: 4px;
+    color: #0f0;
+}
+
+.memory-byte.pc-highlight {
+    background: #ffc107;
+    color: #1a1a2e;
+    font-weight: bold;
+}
+
+.memory-byte.changed {
+    background: #ff9800;
+    color: #1a1a2e;
+    font-weight: bold;
+    border: 1px solid #ff5722;
+}
+
+/* Word-based memory viewer (for word-addressable machines like IBM 1130) */
+.memory-word {
+    display: inline-block;
+    margin-right: 6px;
+    color: #0f0;
+    padding: 2px 4px;
+}
+
+.memory-word.pc-highlight {
+    background: #ffc107;
+    color: #1a1a2e;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.memory-word.changed {
+    background: #ff9800;
+    color: #1a1a2e;
+    font-weight: bold;
+    border: 1px solid #ff5722;
+    border-radius: 3px;
+}
+
+/* IBM 1130 special memory locations */
+.memory-word.trap {
+    background: #b71c1c;
+    color: #ffcdd2;
+    font-weight: bold;
+    border-radius: 3px;
+    border: 1px solid #d32f2f;
+    cursor: help;
+}
+
+.memory-word.index-reg {
+    background: #1565c0;
+    color: #bbdefb;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: help;
+}
+
+.memory-word.interrupt {
+    background: #4a148c;
+    color: #ce93d8;
+    font-style: italic;
+    border-radius: 3px;
+    cursor: help;
+}
+
+/* CPU Status */
+.cpu-status {
+    background: #0f3460;
+    padding: 2px 4px;
+    border-radius: 2px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.status-item {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    font-size: 0.6em;
+}
+
+.status-label {
+    color: #aaa;
+}
+
+.status-value {
+    color: #0f0;
+}
+
+/* Modal Component */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #16213e;
+    border: 2px solid #00d9ff;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 40px rgba(0, 217, 255, 0.3);
+    margin: 5% auto;
+    padding: 20px;
+    overflow-y: auto;
+    color: #eee;
+}
+
+.modal-title {
+    color: #00d9ff;
+    margin-bottom: 15px;
+}
+
+.modal-body {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.modal-close {
+    color: #00d9ff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #00b8d4;
+}
+
+/* Modal Content Styling */
+code {
+    background: #0f3460;
+    padding: 2px 5px;
+    border-radius: 3px;
+    color: #0f0;
+}
+
+pre {
+    background: #0f3460;
+    padding: 10px;
+    border-radius: 3px;
+    overflow-x: auto;
+    margin: 10px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 0.9em;
+}
+
+table th, table td {
+    border: 1px solid #00d9ff;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background: #0f3460;
+    color: #00d9ff;
+}
+
+table td {
+    background: #1a1a2e;
+}
+
+/* Example and Challenge Items */
+.example-item, .challenge-item {
+    background: #0f3460;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border: 1px solid #00d9ff;
+}
+
+.example-item:hover, .challenge-item:hover {
+    background: #1a5f7a;
+    border-color: #00ffff;
+}
+
+.example-item h4, .challenge-item h4 {
+    color: #00d9ff;
+    margin-bottom: 5px;
+}
+
+.example-item p, .challenge-item p {
+    color: #aaa;
+    font-size: 0.85em;
+    margin: 0;
+}
+
+/* Challenge Banner */
+.challenge-banner {
+    position: fixed;
+    top: 8px;
+    right: 10px;
+    background: #1565c0;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 2000;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.85em;
+}
+
+.challenge-info {
+    flex: 1;
+}
+
+.check-solution-btn {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.check-solution-btn:hover {
+    background: #45a049;
+}
+
+/* Success Banner */
+.success-banner {
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    background: #4caf50;
+    color: white;
+    padding: 8px 15px;
+    padding-right: 45px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 2000;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85em;
+}
+
+/* Warning Banner */
+.warning-banner {
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    background: #ff9800;
+    color: white;
+    padding: 8px 15px;
+    padding-right: 45px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 2000;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85em;
+}
+
+/* Error Banner */
+.error-banner {
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    background: #d32f2f;
+    color: white;
+    padding: 8px 15px;
+    padding-right: 45px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 2000;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85em;
+}
+
+.banner-content {
+    flex: 1;
+    line-height: 1.4;
+}
+
+.dismiss-btn {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+}
+
+.dismiss-btn:hover {
+    opacity: 1;
+    background: transparent;
+}
+
+/* Right Panels Container */
+.right-panels {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: hidden;
+}
