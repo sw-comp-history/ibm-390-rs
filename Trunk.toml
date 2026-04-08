@@ -1,6 +1,6 @@
 [build]
-dist = "pages"
-release = true
+dist = "dist"
+release = false
 public_url = "/ibm-390-rs/"
 
 [serve]

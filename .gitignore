@@ -1,6 +1,7 @@
 target/
-pages/
+dist/
 Cargo.lock
 pkg/
 *.wasm
 .DS_Store
+.playwright-cli/

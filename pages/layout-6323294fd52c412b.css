@@ -1,0 +1,111 @@
+/* Game-Specific Layout CSS */
+/* Only layout rules specific to this game's grid structure */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Main Content Grid - account for sidebar */
+.main-content {
+    display: grid;
+    grid-template-columns: 0.75fr 1.25fr;
+    gap: 8px;
+    flex: 1;
+    overflow: hidden;
+    margin-left: 160px; /* Space for fixed sidebar */
+}
+
+/* IBM ESA/390-specific flag styling (6 flags) */
+.flags {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    padding: 6px;
+    background: #0a2540;
+    border-radius: 3px;
+    margin-top: 6px;
+    flex-shrink: 0;
+}
+
+.flag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 0.65em;
+}
+
+.flag-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #555;
+    transition: background 0.3s;
+}
+
+.flag-indicator.set {
+    background: #4caf50;
+}
+
+/* GitHub Corner Ribbon */
+.github-corner {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.github-corner svg {
+    fill: #00d9ff;
+    color: #1a1a2e;
+    width: 60px;
+    height: 60px;
+}
+
+.github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+}
+
+@keyframes octocat-wave {
+    0%, 100% { transform: rotate(0); }
+    20%, 60% { transform: rotate(-25deg); }
+    40%, 80% { transform: rotate(10deg); }
+}
+
+/* Footer */
+.app-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0f3460;
+    color: #888;
+    padding: 4px 10px;
+    font-size: 0.65em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #00d9ff33;
+    z-index: 100;
+}
+
+.footer-left {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-right {
+    display: flex;
+    gap: 15px;
+}
+
+.app-footer a {
+    color: #00d9ff;
+    text-decoration: none;
+}
+
+.app-footer a:hover {
+    text-decoration: underline;
+}

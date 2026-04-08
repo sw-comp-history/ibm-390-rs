@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBM ESA/390 Assembly Game</title>
+    
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="/ibm-390-rs/asm-game-1ace3a9bd74b542d.css" integrity="sha384-7K0aCBnj58qA1IGzUhr1rCvMkq4rali4/zCyGwNMq+P14/f2y8Tmvd7jkfCVH2og"/>
+    <link rel="stylesheet" href="/ibm-390-rs/layout-6323294fd52c412b.css" integrity="sha384-3aHGm+4rT0yfWKMPB7uSBD/chUjNuwWeInrkmYvsA3UMflv8qgScyMSH6g9CsRyI"/>
+    
+<script type="module">
+import init, * as bindings from '/ibm-390-rs/ibm-390-emulator-e6ce7e4a3891d779.js';
+const wasm = await init({ module_or_path: '/ibm-390-rs/ibm-390-emulator-e6ce7e4a3891d779_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+<link rel="modulepreload" href="/ibm-390-rs/ibm-390-emulator-e6ce7e4a3891d779.js" crossorigin="anonymous" integrity="sha384-TuB7l7DCdZmaCi7gQDZWC9ULoAOVqFh3sAsHOaEcNdkHQd+Tj+RhipQtYOxjpqwO"><link rel="preload" href="/ibm-390-rs/ibm-390-emulator-e6ce7e4a3891d779_bg.wasm" crossorigin="anonymous" integrity="sha384-8NsnDBmTDOKICyJDH6abTiooIiOqxsvzwQSMfAEfbTiQXBMRome4h9ul1+uDqJWD" as="fetch" type="application/wasm"></head>
+<body>
+</body>
+</html>
